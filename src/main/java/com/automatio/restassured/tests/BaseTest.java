@@ -36,11 +36,10 @@ public class BaseTest {
 	}
 	
 	
-	
 	@BeforeMethod
 	public void requestObjectInitilization() {
 		request = RestAssured.with();
-		request.baseUri("http://localhost:8080/api/");
+		request.baseUri("http://localhost:8082/api/");
 	}
 	
 	@AfterMethod
