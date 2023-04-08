@@ -1,6 +1,8 @@
 package com.automatio.restassured.tests;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -25,9 +27,11 @@ public class BaseTest {
 	static ExtentSparkReporter reporter;
 	static ExtentReports reports;
 	static ExtentTest test;
+	static Map<String, Object> dataMapper;
 	
 	@BeforeSuite
 	public void testSetUp() {
+		dataMapper = new HashMap<String, Object>();
 		ReadPropertiesData.loadPropertiesFile();
 		File file = new File("ReportHtml.html");
 		reporter = new ExtentSparkReporter(file);
@@ -39,7 +43,7 @@ public class BaseTest {
 	@BeforeMethod
 	public void requestObjectInitilization() {
 		request = RestAssured.with();
-		request.baseUri("http://localhost:8082/api/");
+		request.baseUri("http://localhost:8080/api/");
 	}
 	
 	@AfterMethod

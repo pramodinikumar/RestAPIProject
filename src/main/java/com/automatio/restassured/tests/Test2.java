@@ -19,7 +19,6 @@ public class Test2 extends BaseTest {
 	public void beforeClass() {
 		System.out.print("BeforeClass");
 	}
-	
 
 	
 	//(priority=2)
